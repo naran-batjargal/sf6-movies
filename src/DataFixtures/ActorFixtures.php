@@ -10,10 +10,10 @@ class ActorFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $actor = new Actor();
-        $actor->setName('Christian Bale');
+        $actor1 = new Actor();
+        $actor1->setName('Christian Bale');
         //$actor->addMovie();
-        $manager->persist($actor);
+        $manager->persist($actor1);
 
         $actor2 = new Actor();
         $actor2->setName('Heath Ledger');
@@ -31,5 +31,10 @@ class ActorFixtures extends Fixture
         $manager->persist($actor4);
 
         $manager->flush();
+
+        $this->addReference('actor_1', $actor1);
+        $this->addReference('actor_2', $actor2);
+        $this->addReference('actor_3', $actor3);
+        $this->addReference('actor_4', $actor4);
     }
 }
