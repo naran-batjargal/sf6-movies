@@ -20,7 +20,7 @@ class Ad
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $price = null;
 
-    #[ORM\Column(type: Types::DATETIMETZ_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIMETZ_MUTABLE, options: ["default" =>  "CURRENT_TIMESTAMP"])]
     private ?\DateTimeInterface $created_timestamp = null;
 
     #[ORM\Column(type: Types::DATETIMETZ_MUTABLE, nullable: true)]
@@ -28,6 +28,12 @@ class Ad
 
     #[ORM\Column]
     private ?int $user_id = null;
+
+    public function __construct()
+    {
+        $this->created_timestamp = new \DateTime();
+        $this->user_id = 1;
+    }
 
     public function getId(): ?int
     {
