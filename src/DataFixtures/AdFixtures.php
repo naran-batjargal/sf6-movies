@@ -39,6 +39,34 @@ class AdFixtures extends Fixture
         $ad7->setContent('Chicago d roommate r orno eswel studio hulsulnu');
         $manager->persist($ad7);
 
+        $ad8 = new Ad();
+        $ad8->setContent('Nail tech avna.');
+        $manager->persist($ad8);
+
+        $ad = new Ad();
+        $ad->setContent('Mongol dansand $ bn, USruu shiljuuleh hun haij bn $5000+ message eer holbogdon uu.');
+        $manager->persist($ad);
+
+        $ad = new Ad();
+        $ad->setContent('Hi, Mongoloos 12/22ns hoish ireh hun bnu tolboriig ni tuluud huuhdiin passport avah gsn yum dm pls');
+        $manager->persist($ad);
+
+        $ad = new Ad();
+        $ad->setContent('Sain baitsgaana u. Christmas.n ugluu ireh hvn 33kg hvrtel achaa avchirna UB to Chicago');
+        $manager->persist($ad);
+
+        $ad = new Ad();
+        $ad->setContent('Anglo freight geed cargo - 8 sard ugsun gazriin achaa odoo boltol irdeggui uurusduu ch hariu uguhgui yaag yaa geed bgaan bee');
+        $manager->persist($ad);
+
+        $ad = new Ad();
+        $ad->setContent('Trucknii surguuli sonirhoj bga bol neg hvn mash hyamd vneer oruulj ogno dugaaraa uldeegeerei bayarlalaa');
+        $manager->persist($ad);
+
+        $ad = new Ad();
+        $ad->setContent('Mongoloos achaa avyaa. PM please.');
+        $manager->persist($ad);
+
         $manager->flush();
     }
 }

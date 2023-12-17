@@ -11,25 +11,39 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Knp\Component\Pager\PaginatorInterface;
 
 class AdController extends AbstractController
 {
     private $em;
     private $adRepository;
-    public function __construct(EntityManagerInterface $em, AdRepository $adRepository)
+    private $paginator;
+
+    public function __construct(EntityManagerInterface $em, AdRepository $adRepository, PaginatorInterface $paginator)
     {
         $this->em = $em;
         $this->adRepository = $adRepository;
+        $this->paginator = $paginator;
     }
 
     #[Route('/ads', name: 'ads')]
-    public function index(): Response
+    public function index(Request $request): Response
     {
         $ads = $this->adRepository->findAll();
 
+        $dql   = "SELECT a FROM App\Entity\Ad a";
+        $query = $this->em->createQuery($dql);
+
+        $pagination = $this->paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            4 /*limit per page*/
+        );
+
+        //dd($pagination);
         return $this->render('ads/index.html.twig', [
-            'ads' => $ads
+            'ads' => $ads,
+            'pagination' => $pagination
         ]);
     }
 

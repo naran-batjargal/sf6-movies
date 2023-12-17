@@ -1,36 +1,35 @@
 {% extends "./base.html.twig" %}
 
 {% block body %}
-	<div class="w-4/5 m-auto mt-20 mb-10 flex">
+	<div class="w-4/5 m-auto mt-16 mb-4 flex">
 		<div class="flex-initial mr-4">
-			<img src="{{ asset('images/green-small.png') }}" alt="" class="shadow-xl rounded-md" width="200"/>
+			<img src="{{ asset('images/green-small.png') }}" alt="" class="shadow-xl rounded-md" width="250"/>
 		</div>
 		<div class="flex-initial mr-4">
-			<img src="{{ asset('images/green-small.png') }}" alt="" class="shadow-xl rounded-md" width="200"/>
+			<img src="{{ asset('images/green-small.png') }}" alt="" class="shadow-xl rounded-md" width="250"/>
 		</div>
 		<div class="flex-initial mr-4">
-			<img src="{{ asset('images/green-small.png') }}" alt="" class="shadow-xl rounded-md" width="200"/>
+			<img src="{{ asset('images/green-small.png') }}" alt="" class="shadow-xl rounded-md" width="250"/>
 		</div>
 		<div class="flex-initial mr-4">
-			<img src="{{ asset('images/green-small.png') }}" alt="" class="shadow-xl rounded-md" width="200"/>
-		</div>
-		<div class="flex-initial mr-4">
-			<img src="{{ asset('images/green-small.png') }}" alt="" class="shadow-xl rounded-md" width="200"/>
-		</div>
-		<div class="flex-initial mr-4">
-			<img src="{{ asset('images/green-small.png') }}" alt="" class="shadow-xl rounded-md" width="200"/>
+			<img src="{{ asset('images/green-small.png') }}" alt="" class="shadow-xl rounded-md" width="250"/>
 		</div>
 	</div>
 
-	<div class="md:grid lg:grid-cols-3 w-4/5 mx-auto py-15 ">
-		{% for ad in ads %}
-			<div class="p-2 border-t border-gray-200 bg-slate-{% if loop.index is even %}50{% else %}100{% endif %}">
-				{# <img
-								src="{{ asset('images/reklam.jpeg') }}" alt="" class="shadow-xl rounded-md"/> #}
-				{# ad.imagePath #}
+	{# total items count #}
+	<div class="count">
+		{{ pagination.getTotalItemCount }}
+	</div>
 
-					<span class="text-gray-500"> By
-					<span class="italic text-sm text-gray-800">Code With Dary | 28.01.2022
+	<div class="md:grid lg:grid-cols-3 w-4/5 mx-auto py-15 ">
+		{% for ad in pagination %}
+			<div
+				class="p-2 border-t border-gray-200 bg-slate-{% if loop.index is even %}50{% else %}100{% endif %}">
+				{# ad.imagePath #}
+				<span class="text-gray-500">
+					By
+					<span class="italic text-sm text-gray-800">Code With Dary |
+						{{ad.getCreatedTimestamp() | date('Y-m-d H:i:s')}}
 					</span>
 
 					<p class="text-base text-gray-700 pt-4 pb-4 leading-8 font-light">
@@ -39,4 +38,12 @@
 				</div>
 			{% endfor %}
 		</div>
+
+
+		{# display navigation #}
+		<div class="navigation">
+			{{ knp_pagination_render(pagination) }}
+		</div>
+
+
 	{% endblock %}
