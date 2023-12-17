@@ -37,7 +37,7 @@ class AdController extends AbstractController
         $pagination = $this->paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            4 /*limit per page*/
+            6 /*limit per page*/
         );
 
         //dd($pagination);

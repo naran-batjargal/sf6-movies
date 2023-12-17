@@ -17,14 +17,12 @@
 	</div>
 
 	{# total items count #}
-	<div class="count">
-		{{ pagination.getTotalItemCount }}
-	</div>
+
 
 	<div class="md:grid lg:grid-cols-3 w-4/5 mx-auto py-15 ">
 		{% for ad in pagination %}
 			<div
-				class="p-2 border-t border-gray-200 bg-slate-{% if loop.index is even %}50{% else %}100{% endif %}">
+				class="px-2 py-4 border-t border-gray-200 bg-slate-{% if loop.index is even %}50{% else %}100{% endif %}">
 				{# ad.imagePath #}
 				<span class="text-gray-500">
 					By
@@ -32,7 +30,7 @@
 						{{ad.getCreatedTimestamp() | date('Y-m-d H:i:s')}}
 					</span>
 
-					<p class="text-base text-gray-700 pt-4 pb-4 leading-8 font-light">
+					<p class="text-base text-gray-700 leading-6 font-light">
 						{{ ad.content }}
 					</p>
 				</div>
@@ -41,8 +39,12 @@
 
 
 		{# display navigation #}
-		<div class="navigation">
+		<div id="paginator" class="w-4/5 mx-auto my-6 flex">
 			{{ knp_pagination_render(pagination) }}
+
+			<div class="ml-4">
+				Нийт зар ({{ pagination.getTotalItemCount }})
+			</div>
 		</div>
 
 
