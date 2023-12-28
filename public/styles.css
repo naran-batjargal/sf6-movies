@@ -5,3 +5,9 @@ p {
 div#paginator {
     border: 1px solid red;
 }
+
+input#ad_form_content {
+    width: 400px;
+    height: 200px;
+    border: 1px solid red;
+}

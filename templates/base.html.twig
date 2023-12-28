@@ -3,12 +3,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Welcome!
+			{% block title %}chicago-mongols.com
 			{% endblock %}
 		</title>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		<script src="https://cdn.tailwindcss.com"></script>
 		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+		<script src="/styles.css"></script>
 	</head>
 	<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
 		{% block header %}
@@ -37,7 +38,7 @@
 
 						<ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
 							<li>
-								<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/ads" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
+								<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/ads/create" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
 									Зар нэмэх
 								</a>
 							</li>

@@ -31,7 +31,7 @@ class AdController extends AbstractController
     {
         $ads = $this->adRepository->findAll();
 
-        $dql   = "SELECT a FROM App\Entity\Ad a";
+        $dql   = "SELECT a FROM App\Entity\Ad a ORDER BY a.id DESC";
         $query = $this->em->createQuery($dql);
 
         $pagination = $this->paginator->paginate(
@@ -57,23 +57,24 @@ class AdController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $newAd = $form->getData();
-            $imagePath = $form->get('imagePath')->getData();
+            //$imagePath = $form->get('imagePath')->getData();
 
-            if ($imagePath) {
-                $newFileName = uniqid() . '.' . $imagePath->guessExtension();
+            // if ($imagePath) {
+            //     $newFileName = uniqid() . '.' . $imagePath->guessExtension();
 
-                try {
-                    $imagePath->move(
-                        $this->getParameter('kernel.project_dir') . '/public/uploads',
-                        $newFileName
-                    );
-                } catch (FileException $e) {
-                    return new Response($e->getMessage());
-                }
-                $newAd->setUserId($this->getUser()->getId());
-                $newAd->setImagePath('/uploads/' . $newFileName);
-            }
+            //     try {
+            //         $imagePath->move(
+            //             $this->getParameter('kernel.project_dir') . '/public/uploads',
+            //             $newFileName
+            //         );
+            //     } catch (FileException $e) {
+            //         return new Response($e->getMessage());
+            //     }
+            //     $newAd->setUserId($this->getUser()->getId());
+            //     $newAd->setImagePath('/uploads/' . $newFileName);
+            // }
 
+            $newAd->setUserId($this->getUser()->getId());
             $this->em->persist($newAd);
             $this->em->flush();
 
@@ -81,57 +82,6 @@ class AdController extends AbstractController
         }
 
         return $this->render('ads/create.html.twig', [
-            'form' => $form->createView()
-        ]);
-    }
-
-    #[Route('/ads/edit/{id}', name: 'edit_ad')]
-    public function edit($id, Request $request): Response
-    {
-        $this->checkLoggedInUser($id);
-        $ad = $this->adRepository->find($id);
-
-        $form = $this->createForm(AdFormType::class, $ad);
-
-        $form->handleRequest($request);
-        $imagePath = $form->get('imagePath')->getData();
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            if ($imagePath) {
-                if ($ad->getImagePath() !== null) {
-                    if (file_exists(
-                        $this->getParameter('kernel.project_dir') . $ad->getImagePath()
-                    )) {
-                        $this->GetParameter('kernel.project_dir') . $ad->getImagePath();
-                    }
-                    $newFileName = uniqid() . '.' . $imagePath->guessExtension();
-
-                    try {
-                        $imagePath->move(
-                            $this->getParameter('kernel.project_dir') . '/public/uploads',
-                            $newFileName
-                        );
-                    } catch (FileException $e) {
-                        return new Response($e->getMessage());
-                    }
-
-                    $ad->setImagePath('/uploads/' . $newFileName);
-                    $this->em->flush();
-
-                    return $this->redirectToRoute('ads');
-                }
-            } else {
-                $ad->setTitle($form->get('title')->getData());
-                $ad->setReleaseYear($form->get('releaseYear')->getData());
-                $ad->setDescription($form->get('description')->getData());
-
-                $this->em->flush();
-                return $this->redirectToRoute('ads');
-            }
-        }
-
-        return $this->render('ads/edit.html.twig', [
-            'ad' => $ad,
             'form' => $form->createView()
         ]);
     }
@@ -145,16 +95,6 @@ class AdController extends AbstractController
         $this->em->flush();
 
         return $this->redirectToRoute('ads');
-    }
-
-    #[Route('/ads/{id}', methods: ['GET'], name: 'show_ad')]
-    public function show($id): Response
-    {
-        $ad = $this->adRepository->find($id);
-
-        return $this->render('ads/show.html.twig', [
-            'ad' => $ad
-        ]);
     }
 
     private function checkLoggedInUser($adId)
