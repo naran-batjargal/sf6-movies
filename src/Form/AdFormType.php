@@ -14,6 +14,7 @@ class AdFormType extends AbstractType
         $builder
             ->add('content')
             ->add('price')
+            //->add('price')
             // ->add('created_timestamp')
             // ->add('updated_timestamp')
             // ->add('user_id')

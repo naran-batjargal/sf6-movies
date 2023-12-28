@@ -74,7 +74,7 @@ class AdController extends AbstractController
             //     $newAd->setImagePath('/uploads/' . $newFileName);
             // }
 
-            $newAd->setUserId($this->getUser()->getId());
+            //$newAd->setUserId($this->getUser()->getId());
             $this->em->persist($newAd);
             $this->em->flush();
 
