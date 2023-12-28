@@ -13,8 +13,8 @@ class AdFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('price')
             ->add('content', TextareaType::class, []);
-            //->add('price')
             // ->add('created_timestamp')
             // ->add('updated_timestamp')
             // ->add('user_id')
