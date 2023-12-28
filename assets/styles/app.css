@@ -1,5 +1,26 @@
-@tailwind base;
+/* @tailwind base;
 
 @tailwind components;
 
-@tailwind utilities;
+@tailwind utilities; */
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.pagination {
+    margin: 0 auto;
+}
+.page a, .first a, .previous a, .next a, .last a, .current {
+    border: 1px dotted gray;
+    padding: 8px;
+}
+
+.current {
+    background:rgb(11, 132, 145);
+}
+
+#ad_form_content {
+    width: 450px;
+    height: 200px;
+}
