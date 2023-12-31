@@ -20,8 +20,7 @@
 		{% block header %}
 			<header>
 				<nav class="flex items-center justify-between flex-wrap p-2 fixed w-full z-10 top-0" style="background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);" x-data="{ isOpen: false }" @keydown.escape="isOpen = false">
-
-					<div class="flex items-center flex-shrink-0 text-white mr-6">
+					<div class="flex">
 						<a class="text-white no-underline hover:text-white hover:no-underline" href="/index.php" style="font-family: cursive;">
 							<img src="{{ asset('images/flag-diamond.png') }}" alt="chicago-mongols.com" class="float-left" style="margin-top: 2px;"/>
 							<span class="text-xl pl-2 font-extrabold">
@@ -29,55 +28,31 @@
 							</span>
 						</a>
 					</div>
-
-					<button @click="isOpen = !isOpen" type="button" class="block lg:hidden px-2 text-gray-500 hover:text-white focus:outline-none focus:text-white" :class="{ 'transition transform-180': isOpen }">
-
-						<svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
-
-							<path x-show="isOpen" fill-rule="evenodd" clip-rule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
-
-							<path x-show="!isOpen" fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
-						</svg>
-					</button>
-
-					<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto" :class="{ 'block shadow-xl': isOpen, 'hidden': !isOpen }" @click.away="isOpen = false" x-show.transition="true">
-
-						<ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
-							<li>
-								<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/ads/create" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
-									Зар нэмэх
-								</a>
-							</li>
-							<li>
-								<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/ads" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
-									Зарууд
-								</a>
-							</li>
-							<li>
-								<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/movies" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">Үйл явдлууд
-								</a>
-							</li>
-							{# <li>
-																																																																																											<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/{{app.user ? 'logout' : 'login'}}" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
-																																																																																											{{app.user ? 'Гарах' : 'Нэвтрэх / Бүртгүүлэх'}}
-																																																																																											</a>
-																																																																																											</li> #}
-						</ul>
+					<div class="flex flex-row">
+						<div>
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/ads/create" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
+								Зар нэмэх
+							</a>
+						</div>
+						<div>
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/ads" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
+								Зарууд
+							</a>
+						</div>
+						<div>
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/movies" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">Үйл явдлууд
+							</a>
+						</div>
 					</div>
 				</nav>
-			</header>
-		{% endblock %}
-
-		{% block body %}{% endblock %}
-
-		{% block footer %}
-			<footer style="background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);">
-				<p class="w-25 w-4/5 text-center py-3 m-auto text-base text-gray-100">
-					Copyright &copy; 2024
-					<a href="https://www.facebook.com/firewall.solutions.llc" target="_blank" style="text-decoration: underline;">Firewall Solutions LLC</a>
-					All Rights Reserved.
-				</p>
-			</footer>
-		{% endblock %}
-	</body>
-</html>
+			</body>
+		</body>
+	</html>
+</header>{% endblock %}{% block body %}{% endblock %}{% block footer %}
+<footer style="background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);">
+	<p class="w-25 w-4/5 text-center py-3 m-auto text-base text-gray-100">
+		Copyright &copy; 2024
+		<a href="https://www.facebook.com/firewall.solutions.llc" target="_blank" style="text-decoration: underline;">Firewall Solutions LLC</a>
+		All Rights Reserved.
+	</p>
+</footer>{% endblock %}</body></html>
