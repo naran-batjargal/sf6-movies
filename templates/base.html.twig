@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}chicago-mongols.com
+			{% block title %}
+				chicago-mongols.com
 			{% endblock %}
 		</title>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
@@ -21,7 +22,8 @@
 				<nav class="flex items-center justify-between flex-wrap p-2 fixed w-full z-10 top-0" style="background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);" x-data="{ isOpen: false }" @keydown.escape="isOpen = false">
 
 					<div class="flex items-center flex-shrink-0 text-white mr-6">
-						<a class="text-white no-underline hover:text-white hover:no-underline" href="/" style="font-family: cursive;">
+						<a class="text-white no-underline hover:text-white hover:no-underline" href="/index.php" style="font-family: cursive;">
+							<img src="{{ asset('images/flag-diamond.png') }}" alt="chicago-mongols.com" class="float-left" style="margin-top: 2px;"/>
 							<span class="text-xl pl-2 font-extrabold">
 								chicago-mongols.com
 							</span>
@@ -38,28 +40,28 @@
 						</svg>
 					</button>
 
-					<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto" :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }" @click.away="isOpen = false" x-show.transition="true">
+					<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto" :class="{ 'block shadow-xl': isOpen, 'hidden': !isOpen }" @click.away="isOpen = false" x-show.transition="true">
 
 						<ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
 							<li>
-								<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/ads/create" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
+								<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/ads/create" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
 									Зар нэмэх
 								</a>
 							</li>
 							<li>
-								<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/ads" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
+								<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/ads" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
 									Зарууд
 								</a>
 							</li>
 							<li>
-								<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/movies" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">Үйл явдлууд
+								<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/movies" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">Үйл явдлууд
 								</a>
 							</li>
 							{# <li>
-							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/{{app.user ? 'logout' : 'login'}}" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
-							{{app.user ? 'Гарах' : 'Нэвтрэх / Бүртгүүлэх'}}
-							</a>
-							</li> #}
+																																																																																											<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/{{app.user ? 'logout' : 'login'}}" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
+																																																																																											{{app.user ? 'Гарах' : 'Нэвтрэх / Бүртгүүлэх'}}
+																																																																																											</a>
+																																																																																											</li> #}
 						</ul>
 					</div>
 				</nav>
@@ -71,7 +73,9 @@
 		{% block footer %}
 			<footer style="background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);">
 				<p class="w-25 w-4/5 text-center py-3 m-auto text-base text-gray-100">
-					Copyright &copy; 2024 Firewall Solutions LLC. All Rights Reserved.
+					Copyright &copy; 2024
+					<a href="https://www.facebook.com/firewall.solutions.llc" target="_blank" style="text-decoration: underline;">Firewall Solutions LLC</a>
+					All Rights Reserved.
 				</p>
 			</footer>
 		{% endblock %}
