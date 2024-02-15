@@ -2,22 +2,7 @@
 
 {% block body %}
 	{# Banners #}
-	<div class="w-4/5 m-auto mt-16 mb-4 flex">
-		<div class="flex-initial mr-4">
-			<img src="{{ asset('images/b/lunar2024.jpeg') }}" alt="" class="shadow-xl rounded-md" width="250"/>
-		</div>
-		<div class="flex-initial mr-4">
-			<a href="https://www.facebook.com/firewall.solutions.llc" target="_blank">
-				<img src="{{ asset('images/b/firewall-solutions-llc.png') }}" alt="" class="shadow-xl rounded-md" width="250"/>
-			</a>
-		</div>
-		<div class="flex-initial mr-4">
-			<img src="{{ asset('images/b/green.png') }}" alt="" class="shadow-xl rounded-md" width="250"/>
-		</div>
-		<div class="flex-initial mr-4">
-			<img src="{{ asset('images/b/green.png') }}" alt="" class="shadow-xl rounded-md" width="250"/>
-		</div>
-	</div>
+	<twig:BannersTop/>
 
 	{# total items count #}
 	<div class="md:grid lg:grid-cols-1 w-4/5 mx-auto">
@@ -30,27 +15,16 @@
 					</div>
 
 					<p class="text-base text-gray-700 leading-6 font-light">
-						{{ ad.content }}
+						<a href="/index.php/ads/{{ad.getId()}}">
+							{{ ad.getContentShort()}}
+						</a>
 					</p>
 				</div>
 			{% endfor %}
 		</div>
 
 		{# Banners #}
-		<div class="w-4/5 m-auto my-6 flex">
-			<div class="flex-initial mr-4">
-				<img src="{{ asset('images/b/2024.png') }}" alt="" class="shadow-xl rounded-md" width="250"/>
-			</div>
-			<div class="flex-initial mr-4">
-				<img src="{{ asset('images/b/green.png') }}" alt="" class="shadow-xl rounded-md" width="250"/>
-			</div>
-			<div class="flex-initial mr-4">
-				<img src="{{ asset('images/b/green.png') }}" alt="" class="shadow-xl rounded-md" width="250"/>
-			</div>
-			<div class="flex-initial mr-4">
-				<img src="{{ asset('images/b/green.png') }}" alt="" class="shadow-xl rounded-md" width="250"/>
-			</div>
-		</div>
+		<twig:BannersBottom/>
 
 		{# display navigation #}
 		<div id="paginator" class="w-4/5 mx-auto my-6 flex">

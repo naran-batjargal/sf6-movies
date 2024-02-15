@@ -45,6 +45,11 @@ class Ad
         return $this->content;
     }
 
+    public function getContentShort(): ?string
+    {
+        return mb_strimwidth($this->content, 0, 400, '...', 'utf-8');
+    }
+
     public function setContent(string $content): static
     {
         $this->content = $content;

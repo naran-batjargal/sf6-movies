@@ -97,6 +97,17 @@ class AdController extends AbstractController
         return $this->redirectToRoute('ads');
     }
 
+
+    #[Route('/ads/{id}', methods: ['GET'], name: 'show_ad')]
+    public function show($id): Response
+    {
+        $ad = $this->adRepository->find($id);
+
+        return $this->render('ads/show.html.twig', [
+            'ad' => $ad
+        ]);
+    }
+
     private function checkLoggedInUser($adId)
     {
         if ($this->getUser() == null || $this->getUser()->getId() !== $adId) {

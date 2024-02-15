@@ -1,0 +1,26 @@
+{% extends "./base.html.twig" %}
+
+{% block body %}
+
+	<twig:BannersTop/>
+
+	<div class="sm:w-3/5 w-4/5 m-auto mt-12">
+		<a href="/index.php/ads" class="underline text-gray-800 m-auto">
+			&laquo; Буцах
+		</a>
+
+		<div class="italic text-sm text-gray-800 float-right">
+			{{ad.getTimeago()}}
+			{{ad.getPrice() ? ('| ' ~ ad.getPrice()) : ''}}
+		</div>
+	</div>
+
+	<div class="sm:w-3/5 w-4/5 m-auto mt-12 mb-12">
+		<p class="text-base text-gray-700 leading-6 font-light">
+			{{ ad.getContent()}}
+		</p>
+	</div>
+
+	<twig:BannersBottom/>
+
+{% endblock %}

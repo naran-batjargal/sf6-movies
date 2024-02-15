@@ -1,7 +1,9 @@
 {% extends "./base.html.twig" %}
 
 {% block body %}
-	<div class="w-4/5 m-auto my-20">
+	<twig:BannersTop/>
+
+	<div class="w-4/5 m-auto my-12">
 		{{ form_start(form) }}
 
 		<div class="form-control">
@@ -35,4 +37,6 @@
 
 		{{ form_end(form) }}
 	</div>
+
+	<twig:BannersBottom/>
 {% endblock %}
