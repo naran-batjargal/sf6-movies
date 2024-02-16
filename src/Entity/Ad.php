@@ -42,12 +42,12 @@ class Ad
 
     public function getContent(): ?string
     {
-        return $this->content;
+        return nl2br($this->content);
     }
 
     public function getContentShort(): ?string
     {
-        return mb_strimwidth($this->content, 0, 400, '...', 'utf-8');
+        return mb_strimwidth(nl2br($this->content), 0, 400, '...', 'utf-8');
     }
 
     public function setContent(string $content): static
