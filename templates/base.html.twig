@@ -22,7 +22,7 @@
 				<nav class="flex justify-between flex-wrap p-2 fixed w-full z-10 top-0" style="background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);" x-data="{ isOpen: false }" @keydown.escape="isOpen = false">
 
 					<div class="flex ">
-						<a class="text-white no-underline hover:text-white hover:no-underline" href="/index.php" style="font-family: cursive;">
+						<a class="text-white no-underline hover:text-white hover:no-underline" href="/" style="font-family: cursive;">
 							<img src="{{ asset('images/flag-diamond.png') }}" alt="chicago-mongols.com" class="float-left" style="margin-top: 2px;"/>
 							<span class="text-xl pl-2 font-extrabold">
 								chicago-mongols.com
@@ -42,6 +42,11 @@
 						</div>
 						<div>
 							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/movies" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">Үйлчилгээ / Байгууллагууд
+							</a>
+						</div>
+						<div>
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/contact" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
+								Холбоо барих
 							</a>
 						</div>
 					</div>

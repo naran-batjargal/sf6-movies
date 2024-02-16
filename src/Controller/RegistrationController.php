@@ -40,4 +40,10 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+
+    #[Route('/contact', name: 'contact')]
+    public function contact(): Response
+    {
+        return $this->render('registration/contact.html.twig');
+    }
 }
