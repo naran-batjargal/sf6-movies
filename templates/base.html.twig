@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+w[l] = w[l] || [];
+w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s),
+dl = l != 'dataLayer' ? '&l=' + l : '';
+j.async = true;
+j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-KVVVZS7S');
+		</script>
+		<!-- End Google Tag Manager -->
+
 		<meta charset="UTF-8">
 		<title>
 			{% block title %}
@@ -16,7 +31,14 @@
 		{% endblock %}
 
 	</head>
-	<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+	<body
+		class="bg-gray-100 h-screen antialiased leading-none font-sans">
+		<!-- Google Tag Manager (noscript) -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVVVZS7S" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) -->
+
 		{% block header %}
 			<header>
 				<nav class="flex justify-between flex-wrap p-2 fixed w-full z-10 top-0" style="background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);" x-data="{ isOpen: false }" @keydown.escape="isOpen = false">
@@ -31,21 +53,46 @@
 					</div>
 					<div class="flex flex-row">
 						<div>
-							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/ads/create" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
-								Зар нэмэх
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline p-2" href="/index.php/cargos" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">Карго
 							</a>
 						</div>
 						<div>
-							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/ads" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline p-2" href="/index.php/attorneys" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">Хуульч
+							</a>
+						</div>
+						<div>
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline p-2" href="/index.php/realtors" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">Үл хөдлөх
+							</a>
+						</div>
+						<div>
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline p-2" href="/index.php/cpas" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">Татвар
+							</a>
+						</div>
+						<div>
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline p-2" href="/index.php/sports" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">Урлаг / Спорт
+							</a>
+						</div>
+						<div>
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline p-2" href="/index.php/services" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">Үйлчилгээ
+							</a>
+						</div>
+						<div>
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline p-2" href="/index.php/ads" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
 								Зарууд
 							</a>
 						</div>
 						<div>
-							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/movies" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">Үйлчилгээ / Байгууллагууд
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline p-2" href="/index.php/ads/create" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
+								Зар нэмэх
 							</a>
 						</div>
 						<div>
-							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/index.php/contact" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline p-2" href="/index.php/contact" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
+								Салонууд
+							</a>
+						</div>
+						<div>
+							<a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline p-2" href="/index.php/contact" @click="isOpen = false" style="font-family: 'Gill Sans', sans-serif;">
 								Холбоо барих
 							</a>
 						</div>
